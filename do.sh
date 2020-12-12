@@ -39,11 +39,16 @@ WrongRsponse () {
     exit 1
 }
 
-if [[ $# -lt 1 ]]; then
-    WrongRsponse
+
+usr_num=$(ls /home | grep -v lost+found | wc -l)
+if [[ $usr_num -eq 0 && $# -eq 0 ]];then
+       WrongRsponse
+else if [[ $usr_num -eq 0 ]];then
+       USR1=$1
+else
+       USR1=$(ls /home | grep -v lost+found | head -1)
 fi
 
-USR1=$1
 
 do_check_release(){
     cat /etc/issue

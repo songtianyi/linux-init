@@ -3,7 +3,7 @@ linux-init
 
 linux-init
 
-usage
+usage:
 
 cd linux-init/
 
